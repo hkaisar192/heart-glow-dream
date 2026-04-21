@@ -8,6 +8,7 @@ import { FireworkBurst } from "@/components/FireworkBurst";
 import { SurpriseModal } from "@/components/SurpriseModal";
 import { CursorSparkle } from "@/components/CursorSparkle";
 import photoFrame from "@/assets/photo-frame.png";
+import birthdayBg from "@/assets/birthday-bg.png";
 
 export const Route = createFileRoute("/")({
   component: BirthdayPage,
@@ -103,10 +104,13 @@ function BirthdayPage() {
 
   return (
     <div
-      className="min-h-screen relative animate-gradient"
+      className="min-h-screen relative"
       style={{
-        background: "linear-gradient(135deg, var(--background), var(--lavender-soft), var(--rose-soft), var(--background), var(--secondary))",
-        backgroundSize: "400% 400%",
+        backgroundColor: "#000",
+        backgroundImage: `url(${birthdayBg})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundAttachment: "fixed",
       }}
     >
       <CursorSparkle />
@@ -155,18 +159,19 @@ function BirthdayPage() {
         <motion.div
           className="rounded-3xl p-8 sm:p-10 mb-12 text-center"
           style={{
-            background: "linear-gradient(135deg, color-mix(in oklch, var(--card) 90%, transparent), color-mix(in oklch, var(--lavender-soft) 80%, transparent))",
-            backdropFilter: "blur(10px)",
-            boxShadow: "0 0 40px color-mix(in oklch, var(--glow-soft) 20%, transparent)",
+            background: "rgba(0, 0, 0, 0.55)",
+            backdropFilter: "blur(12px)",
+            border: "1px solid rgba(255, 150, 200, 0.2)",
+            boxShadow: "0 0 40px rgba(255, 100, 180, 0.15)",
           }}
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1 }}
         >
-          <h2 className="text-2xl sm:text-3xl font-display text-primary mb-6">
+          <h2 className="text-2xl sm:text-3xl font-display mb-6" style={{ color: "#ff8ec4" }}>
             To My Dearest Friend 🌹
           </h2>
-          <p className="text-muted-foreground leading-relaxed text-base sm:text-lg">
+          <p className="leading-relaxed text-base sm:text-lg" style={{ color: "rgba(255,255,255,0.8)" }}>
             Every moment with you is a blessing I never take for granted. You've been
             my shoulder to cry on, my partner in laughter, and the most beautiful soul
             I've ever known. Your kindness, your strength, and your warm heart inspire
@@ -200,7 +205,7 @@ function BirthdayPage() {
           transition={{ delay: 2 }}
         >
           <div className="text-6xl sm:text-8xl animate-float-gentle mb-4">🎂</div>
-          <p className="text-muted-foreground text-sm">Make a wish! ✨</p>
+          <p className="text-sm" style={{ color: "rgba(255,255,255,0.6)" }}>Make a wish! ✨</p>
         </motion.div>
 
         {/* Final message */}
