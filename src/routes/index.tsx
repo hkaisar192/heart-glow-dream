@@ -182,20 +182,6 @@ function BirthdayPage() {
           </p>
         </motion.div>
 
-        {/* Surprise button */}
-        <motion.div
-          className="flex justify-center mb-16"
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6, delay: 1.5 }}
-        >
-          <button
-            onClick={handleSurprise}
-            className="surprise-btn text-primary-foreground px-8 py-4 rounded-full text-lg sm:text-xl font-display tracking-wide"
-          >
-            Click for a Surprise 🎁
-          </button>
-        </motion.div>
 
         {/* Cake animation */}
         <motion.div
