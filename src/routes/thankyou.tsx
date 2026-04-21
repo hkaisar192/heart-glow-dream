@@ -87,8 +87,6 @@ function MemoriesPage() {
             ← Back Home
           </Link>
         </motion.div>
-
-        {/* Let's Celebrate button */}
         <motion.div
           className="flex justify-center mt-6 pb-8"
           initial={{ opacity: 0, y: 20 }}
