@@ -10,11 +10,17 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as ThankyouRouteImport } from './routes/thankyou'
+import { Route as CelebrateRouteImport } from './routes/celebrate'
 import { Route as IndexRouteImport } from './routes/index'
 
 const ThankyouRoute = ThankyouRouteImport.update({
   id: '/thankyou',
   path: '/thankyou',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CelebrateRoute = CelebrateRouteImport.update({
+  id: '/celebrate',
+  path: '/celebrate',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -25,27 +31,31 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/celebrate': typeof CelebrateRoute
   '/thankyou': typeof ThankyouRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/celebrate': typeof CelebrateRoute
   '/thankyou': typeof ThankyouRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/celebrate': typeof CelebrateRoute
   '/thankyou': typeof ThankyouRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/thankyou'
+  fullPaths: '/' | '/celebrate' | '/thankyou'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/thankyou'
-  id: '__root__' | '/' | '/thankyou'
+  to: '/' | '/celebrate' | '/thankyou'
+  id: '__root__' | '/' | '/celebrate' | '/thankyou'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  CelebrateRoute: typeof CelebrateRoute
   ThankyouRoute: typeof ThankyouRoute
 }
 
@@ -56,6 +66,13 @@ declare module '@tanstack/react-router' {
       path: '/thankyou'
       fullPath: '/thankyou'
       preLoaderRoute: typeof ThankyouRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/celebrate': {
+      id: '/celebrate'
+      path: '/celebrate'
+      fullPath: '/celebrate'
+      preLoaderRoute: typeof CelebrateRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -70,8 +87,18 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  CelebrateRoute: CelebrateRoute,
   ThankyouRoute: ThankyouRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { createStart } from '@tanstack/react-start'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+  }
+}

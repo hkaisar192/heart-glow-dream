@@ -77,14 +77,14 @@ function MemoriesPage() {
           transition={{ delay: 0.8 }}
         >
           <Link
-            to="/"
+            to="/celebrate"
             className="px-8 py-3 rounded-full text-white text-lg font-medium inline-block"
             style={{
               background: "linear-gradient(135deg, #a855f7, #ec4899)",
               boxShadow: "0 8px 30px rgba(168, 85, 247, 0.4)",
             }}
           >
-            ← Back Home
+            Let's Celebrate! 🎈
           </Link>
         </motion.div>
       </div>
