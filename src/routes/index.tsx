@@ -8,6 +8,7 @@ import { FireworkBurst } from "@/components/FireworkBurst";
 import { SurpriseModal } from "@/components/SurpriseModal";
 import { CursorSparkle } from "@/components/CursorSparkle";
 import photoFrame from "@/assets/photo-frame.png";
+import birthdayBg from "@/assets/birthday-bg.png";
 
 export const Route = createFileRoute("/")({
   component: BirthdayPage,
@@ -103,10 +104,13 @@ function BirthdayPage() {
 
   return (
     <div
-      className="min-h-screen relative animate-gradient"
+      className="min-h-screen relative"
       style={{
-        background: "linear-gradient(135deg, var(--background), var(--lavender-soft), var(--rose-soft), var(--background), var(--secondary))",
-        backgroundSize: "400% 400%",
+        backgroundColor: "#000",
+        backgroundImage: `url(${birthdayBg})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundAttachment: "fixed",
       }}
     >
       <CursorSparkle />
