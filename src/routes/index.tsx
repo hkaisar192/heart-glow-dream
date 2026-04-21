@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState, useEffect, useRef, useCallback } from "react";
 import { motion } from "framer-motion";
 import { FloatingHearts } from "@/components/FloatingHearts";
@@ -231,6 +231,25 @@ function BirthdayPage() {
               </span>
             ))}
           </div>
+        </motion.div>
+
+        {/* Next page button */}
+        <motion.div
+          className="flex justify-center pb-16"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 3 }}
+        >
+          <Link
+            to="/thankyou"
+            className="px-8 py-4 rounded-full text-white text-lg sm:text-xl font-medium inline-block"
+            style={{
+              background: "linear-gradient(135deg, #a855f7, #ec4899)",
+              boxShadow: "0 8px 30px rgba(168, 85, 247, 0.4)",
+            }}
+          >
+            Next Page ➡️
+          </Link>
         </motion.div>
       </div>
     </div>
