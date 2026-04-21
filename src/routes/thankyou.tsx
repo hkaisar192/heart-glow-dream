@@ -87,25 +87,6 @@ function MemoriesPage() {
             ← Back Home
           </Link>
         </motion.div>
-        <motion.div
-          className="flex justify-center mt-6 pb-8"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1 }}
-        >
-          <button
-            onClick={() => {
-              alert("🎉🥳 Happy Birthday! Let's party! 🎊🎂");
-            }}
-            className="px-8 py-3 rounded-full text-white text-lg font-medium"
-            style={{
-              background: "linear-gradient(135deg, #f472b6, #a855f7)",
-              boxShadow: "0 8px 30px rgba(244, 114, 182, 0.4)",
-            }}
-          >
-            Let's Celebrate! 🎈
-          </button>
-        </motion.div>
       </div>
     </div>
   );
